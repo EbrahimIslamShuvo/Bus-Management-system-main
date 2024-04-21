@@ -1,7 +1,15 @@
 <?php
     require_once("config\connect.php");
-$sql = "SELECT * FROM contractus";
-$result = $con->query($sql);
+    $sql = "SELECT * FROM contractus";
+    $result = $con->query($sql);
+    if (isset($_GET['email'])) {
+        $email = $_GET['email'];
+        
+        // Fetch user information
+        $user_query = "SELECT * FROM users WHERE user_email ='$email'";
+        $user_result = mysqli_query($con, $user_query);
+        $user_row = mysqli_fetch_array($user_result);
+    }
 
 ?>
 
@@ -21,8 +29,8 @@ $result = $con->query($sql);
             <div class="user">
                 <img src="https://i.ibb.co/JkCMRkq/avatar-people-person-profile-user-women-icon-icon-search-engine-23.png" class="userpic">
                 <div>
-                    <h2>Admin</h2>
-                    <p>Administration@gmail.com</p>
+                  <h2><?php echo $user_row['user_name']; ?></h2>
+                  <p><?php echo $user_row['user_email']; ?></p>
                 </div>
             </div>
             <ul>
@@ -46,16 +54,14 @@ $result = $con->query($sql);
                         <h2 class="display-6 text-center">Customer Text</h2>
                     </div>
                     <div class="card-body">
-                        <a href="addnewoperator.php" class="btn btn-primary" style="background-color: blue; margin-bottom: 5px; margin-left: 5px;">Add Operator</a>
                         <table class="table text-center">
                             <thead>
                                 <tr>
-                                    <th style="width: auto;">ID</th>
-                                    <th style="width: auto;">First Name</th>
-                                    <th style="width: auto;">last Name</th>
-                                    <th style="width: auto;">Email Name</th>
-                                    <th style="width: auto;">Phone Name</th>
-                                    <th style="width: auto;">Text</th>
+                                    <th style="width: auto;">Bus ID</th>
+                                    <th style="width: auto;">Bus Name</th>
+                                    <th style="width: auto;">Customer Email</th>
+                                    <th style="width: auto;">Journey Date</th>
+                                    <th style="width: auto;">Seat</th>
                                     <th style="width: 300px;"></th>
                                 </tr>
                             </thead>
@@ -64,14 +70,13 @@ $result = $con->query($sql);
                                     while($row = mysqli_fetch_array($result)){
                                     ?>
                                     <tr style="border-bottom: 25px solid transparent;">
-                                        <td><?php echo $row['id']?></td>
-                                        <td><?php echo $row['FirstName']?></td>
-                                        <td><?php echo $row['LastName']?></td>
-                                        <td><?php echo $row['Email']?></td>
-                                        <td><?php echo $row['Mobile']?></td>
-                                        <td><?php echo $row['Message']?></td>
+                                        <td><?php echo $row['busid']?></td>
+                                        <td><?php echo $row['busname']?></td>
+                                        <td><?php echo $row['cus_email']?></td>
+                                        <td><?php echo $row['journey_date']?></td>
+                                        <td><?php echo $row['seat']?></td>
                                         <td>
-                                            <a href="#" class="btn btn-primary" style="background-color: blue">Reply</a>
+                                            <a href="#" class="btn btn-primary" style="background-color: blue">Update</a>
                                             <a href="#" class="btn btn-primary" style="background-color: red;">Delete</a>
 
                                         </td>
