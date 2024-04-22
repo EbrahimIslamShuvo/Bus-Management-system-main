@@ -133,39 +133,3 @@ echo 'ami aschi'; // This line will be executed regardless of the condition abov
 
 
 
-require_once ('config/connect.php');
-if (isset($_POST['seatArray'])) {
-    $seats = json_decode($_POST['seatArray']);
-    // echo $seats;
-    // Now $seats contains your array, you can work with it as needed
-    foreach ($seats as $seat) {
-        // Prepare the SQL statement
-        $sql = "INSERT INTO selected (seat) VALUES (?)";
-
-        // Prepare the statement
-        $stmt = mysqli_prepare($conn, $sql);
-
-        // Bind parameters and execute the statement
-        mysqli_stmt_bind_param($stmt, "s", $seat);
-        $result = mysqli_stmt_execute($stmt);
-
-        // Check if the statement execution was successful
-        if ($result) {
-            // Statement executed successfully
-            echo "Seat inserted: $seat <br>";
-        } else {
-            // Error occurred
-            echo "Error inserting seat: $seat - " . mysqli_error($conn) . "<br>";
-        }
-
-        // Close the statement
-        mysqli_stmt_close($stmt);
-    }
-
-
-    // Optionally, you can send a response back to the JavaScript
-    // For example, if the operation was successful:
-    echo "1";
-} else {
-    echo "No array received.";
-}

@@ -13,15 +13,8 @@ function x() {
         }
       }
       arr.push(opp);
-      // console.log(arr)
-
-      // console.log("array length: ",arr.length);
 
       let dup = [...new Set(arr)];
-
-      console.log(dup)
-
-      // console.log(dup.length, "duplicate", dup);
 
       if (dup.length <= 4) {
         op.style.background = "#67f851";
@@ -34,6 +27,7 @@ function x() {
 
         let zero = document.getElementById("zero");
         let zero1 = parseInt(zero.innerText);
+        // console.log(zero1)
 
         let sum = zero1 + 1;
         zero.innerText = sum;
@@ -43,22 +37,52 @@ function x() {
         // append child part
         let app = document.getElementById("pll");
 
-        let divv = document.createElement("div");
+        let divv = document.createElement("div")
+        
 
         let makeApp = document.createElement("p");
-        for (i = 0; i < arr.length; i++) {
-          makeApp.innerText = arr[i];
-        }
+        makeApp.innerText = opp 
         divv.appendChild(makeApp);
+        // console.log(divv)
+// not working
+        let makeApp2 = document.createElement("h3")
+        makeApp2.innerText = "Economy"
+        divv.appendChild(makeApp2)
+      // working 
+      let makeApp3 = document.createElement("p")
+      makeApp3.innerText = perSetPrice
+      divv.appendChild(makeApp3)
+      
+      app.appendChild(divv)
+      // console.log(makeApp)
+      // console.log(makeApp3)
 
-        let makeApp3 = document.createElement("p");
-        divv.appendChild(makeApp3);
+      
+      divv.style.width = "100%"
+      divv.style.display = "flex"
+      divv.style.justifyContent = "space-evenly"
+        // append child part
+      //   let app = document.getElementById("pll");
 
-        app.appendChild(divv);
+      //   let divv = document.createElement("div");
 
-        divv.style.width = "100%";
-        divv.style.display = "flex";
-        divv.style.justifyContent = "space-evenly";
+      //   let makeApp = document.createElement("p");
+      //   for (i = 0; i < arr.length; i++) {
+      //     makeApp.innerText = arr[i];
+      //   }
+      //   divv.appendChild(makeApp);
+
+      //   // let makeApp3 = document.createElement("p");
+      //   let makeApp3 = document.createElement("p")
+      // makeApp3.innerText = "550"
+      // divv.appendChild(makeApp3)
+      //   // divv.appendChild(makeApp3);
+
+      //   // app.appendChild(divv);
+
+      //   divv.style.width = "100%";
+      //   divv.style.display = "flex";
+      //   divv.style.justifyContent = "space-evenly";
 
         // total
 
@@ -98,7 +122,7 @@ function x() {
       const don = document.getElementById("don");
       don.addEventListener("click", function() {
           let dup = [...new Set(arr)]; // Assuming arr is defined somewhere
-          console.log("Sending data:", dup); // Check if data is correct
+          // console.log("Sending data:", dup); // Check if data is correct
           var jq = jQuery.noConflict();
           jq.ajax({
               type: "POST",

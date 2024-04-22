@@ -210,10 +210,13 @@ if (isset($_GET['busid']) && isset($_GET['date'])) {
                     <hr class="mt-3" />
 
                     <div class="w-full bg-white min-h-[100px] text-center pt-3 rounded-2xl mt-3">
-                        <div class="grid grid-cols-2 gap-5">
+                        <div class="grid grid-cols-3">
                             <div>Seat <span id="zero" class="bg-[#1DD100] p-2 rounded-sm">0</span></div>
+                            <div>Class</div>
                             <div>price</div>
                         </div>
+
+
 
                         <hr class="mt-4  kok" />
 
@@ -229,7 +232,7 @@ if (isset($_GET['busid']) && isset($_GET['date'])) {
                         <div class="flex p-4">
                             <input id="in" type="text" placeholder="Type here"
                                 class="input input-bordered w-full max-w-xs" />
-                            <button id="ds" disabled class="btn">Apply</button>
+                            <button id="ds" class="btn">Apply</button>
                         </div>
                         <div class="flex justify-between mt-2 p-3">
                             <h1>Grand Total</h1>
