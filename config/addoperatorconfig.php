@@ -19,14 +19,13 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             if($result){
                 echo '<script>
                     alert("New operator added successfully");
-                    window.location.href = "/tickets-system-only-html-and-css-main/operator.php";
-                    alert("New account created successfully");
+                    window.location.href = "/Bus-Management-system-main/operator.php";
                 </script>';
             }
             else{
                 echo '<script>
                     alert("An error occurred");
-                    window.location.href = "/tickets-system-only-html-and-css-main/operator.php";
+                    window.location.href = "/Bus-Management-system-main/operator.php";
                 </script>';
 
             }
@@ -34,7 +33,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         else{
             echo '<script>
                 alert("This operator already exists.");
-                window.location.href = "/tickets-system-only-html-and-css-main/operator.php";
+                window.location.href = "/Bus-Management-system-main/operator.php";
             </script>';
 
         }

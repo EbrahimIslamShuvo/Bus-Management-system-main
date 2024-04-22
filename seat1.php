@@ -236,7 +236,7 @@ if (isset($_GET['busid']) && isset($_GET['date'])) {
                             <h1>BDT <span id="grando">0</span></h1>
                         </div>
                     </div>
-                    <button id="don" class="btn w-full bg-[#1DD100] mt-4 text-white">NEXT</button>
+                    <button id="don" href="" class="btn w-full bg-[#1DD100] mt-4 text-white">NEXT</button>
                     <div class="flex justify-around mt-4">
                         <a class="text-blue-400 underline cursor-pointer">Terms and conditions</a>
                         <a class="text-blue-400 underline cursor-pointer">Cancilation policy</a>
@@ -252,7 +252,3 @@ if (isset($_GET['busid']) && isset($_GET['date'])) {
 
 </html>
 ```
-
-In this code, I've passed the PHP variable `$perSetPrice` to JavaScript so it can be used in the calculation.
-Additionally, I've fixed some minor issues in the HTML and JavaScript code. Make sure to adjust the AJAX request
-handling in your PHP script accordingly if you are sending additional data from the client to the server.

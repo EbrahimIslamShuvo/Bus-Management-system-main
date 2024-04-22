@@ -1,45 +1,6 @@
 <?php
-require_once ('config/connect.php');
-$query = "SELECT * FROM activity";
-$result = mysqli_query($con, $query);
-$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-$status = $row['status'];
-$user_query = "SELECT * FROM activity JOIN users ON activity.email = users.user_email WHERE activity.email = '" . $row['email'] . "'";
-
-if ($status == "YES") {
-  $name = $row["username"];
-  $email = $row["email"];
-  $user_type = $row["type"];
-  if ($user_type == 'customer') {
-    echo '<script>
-                    window.location.href = "userdashboard.php";
-                </script>';
-  } elseif ($user_type == 'operator') {
-    echo '<script>
-                    window.location.href = "operatorpannel.php";
-                </script>';
-  } elseif ($user_type == 'admin') {
-    echo '<script>
-                    window.location.href = "mainadmindash.php";
-                </script>';
-  }
-}
-?>
-
-
-
-
-
-<?php
-require_once ('config/connect.php');
-
-if (isset($_GET['email'])) {
-  $email = $_GET['email'];
-
-  // Fetch user information
-  $user_query = "SELECT * FROM users WHERE user_email = '$email'";
-  $user_result = mysqli_query($con, $user_query);
-  $user_row = mysqli_fetch_array($user_result);
+require_once('config/getdata.php');
+  $email = $user_row['user_email'];
 
   // Fetch user's ticket history
   $ticket_query = "SELECT * FROM buslist JOIN sellticket ON buslist.id = sellticket.busid WHERE sellticket.cus_email = '$email'";
@@ -68,7 +29,6 @@ if (isset($_GET['email'])) {
   $result_text = mysqli_query($con, $query_text);
   $count_text_row = mysqli_fetch_assoc($result_text);
   $count_text = $count_text_row['text_count'];
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,20 +54,20 @@ if (isset($_GET['email'])) {
       </div>
       <ul>
         <li><img src="https://i.ibb.co/xjc8mSN/dashboard.png">
-          <p><a href="mainadmindash.php?email=<?php echo $email; ?>">Dashboard</a></p>
+          <p><a href="mainadmindash.php">Dashboard</a></p>
         </li>
         <li><img src="https://i.ibb.co/5x6gHXf/operator-icon-14.png">
-          <p><a href="operator.php?email=<?php echo $email; ?>">Operator</a></p>
+          <p><a href="operator.php">Operator</a></p>
         </li>
         <li><img src="https://i.ibb.co/X7hhwzy/customers-icon-29.png">
-          <p><a href="customerfmain.php?email=<?php echo $email; ?>">Customer</a></p>
+          <p><a href="customerfmain.php">Customer</a></p>
         </li>
         <li><img src="https://i.ibb.co/Dz5S4C6/admit-one-ticket-icon-black-and-white-isolated-wite-free-vector.jpg">
-          <p><a href="showsellticket.php?email=<?php echo $email; ?>">Tickets</a></p>
+          <p><a href="showsellticket.php">Tickets</a></p>
         </li>
         <li><img
             src="https://i.ibb.co/Xx9XbLV/help-desk-computer-icons-icon-design-technical-support-png-favpng-ZFKe-CZq-Pe-K0-Vnj-E5y-Nddw-FUb-X.jpg">
-          <p><a href="customertext.php?email=<?php echo $email; ?>">Customers Text</a></p>
+          <p><a href="customertext.php">Customers Text</a></p>
         </li>
       </ul>
       <ul>
@@ -128,7 +88,7 @@ if (isset($_GET['email'])) {
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="operator.php?email=<?php echo $email; ?>" class="box-footer">More info <i
+            <a href="operator.php" class="box-footer">More info <i
                 class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
@@ -142,7 +102,7 @@ if (isset($_GET['email'])) {
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="customerfmain.php?email=<?php echo $email; ?>" class="box-footer">More info <i
+            <a href="customerfmain.php" class="box-footer">More info <i
                 class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
@@ -155,7 +115,7 @@ if (isset($_GET['email'])) {
               <h3><?php echo $count_tic; ?></h3>
               <p>Tickets Sell</p>
             </div>
-            <a href="#" class="box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="showsellticket.php" class="box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
@@ -168,7 +128,7 @@ if (isset($_GET['email'])) {
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="customertext.php?email=<?php echo $email; ?>" class="box-footer">More info <i
+            <a href="customertext.php" class="box-footer">More info <i
                 class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>

@@ -1,18 +1,10 @@
 <?php
-require_once ('config/connect.php');
-
-if (isset($_GET['email'])) {
-    $email = $_GET['email'];
-    
-    // Fetch user information
-    $user_query = "SELECT * FROM users WHERE user_email ='$email'";
-    $user_result = mysqli_query($con, $user_query);
-    $user_row = mysqli_fetch_array($user_result);
+require_once ('config/getdata.php');
 
     // Fetch user's ticket history
-    $ticket_query = "SELECT * FROM buslist JOIN sellticket ON buslist.id = sellticket.busid WHERE sellticket.cus_email= '$email'";
+    $ticket_query = "SELECT * FROM buslist JOIN sellticket ON buslist.id = sellticket.busid WHERE sellticket.cus_email= '{$user_row['user_email']}'";
     $ticket_result = mysqli_query($con, $ticket_query);
-}
+
 ?>
 
 <!DOCTYPE html>

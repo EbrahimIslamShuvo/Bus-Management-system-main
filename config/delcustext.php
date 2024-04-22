@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
 
     // Prepare the DELETE statement
-    $query = "DELETE FROM operatorlist WHERE serial = ?";
+    $query = "DELETE FROM contractus WHERE id = ?";
     $stmt = mysqli_prepare($con, $query);
 
     // Bind the parameter
@@ -19,12 +19,12 @@ if (isset($_GET['id'])) {
     if (mysqli_stmt_affected_rows($stmt) > 0) {
         echo '<script>
                 alert("Delete successful");
-                window.location.href = "/Bus-Management-system-main/operator.php";
+                window.location.href = "/Bus-Management-system-main/customertext.php";
               </script>';
     } else {
         echo '<script>
                 alert("Failed to delete");
-                window.location.href = "/Bus-Management-system-main/operator.php";
+                window.location.href = "/Bus-Management-system-main/customertext.php";
               </script>';
     }
 

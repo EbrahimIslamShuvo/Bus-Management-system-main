@@ -1,6 +1,6 @@
 <?php
 
-require_once('connect.php');
+require_once('getdata.php');
 $_SERVER['REQUEST_METHOD']='POST';
 
     if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -16,6 +16,7 @@ $_SERVER['REQUEST_METHOD']='POST';
         $Route= $_POST['Route'];
 
         if($con){
+            if($user_role == $name){
             $query = "SELECT * FROM buslist WHERE id = '$id'";
             $result = mysqli_query($con ,$query); 
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -45,6 +46,13 @@ $_SERVER['REQUEST_METHOD']='POST';
     
             }
         }
+        else{
+            echo '<script>
+                    alert("You are not authorize person to add this name bus");
+                    window.location.href = "/tickets-system-only-html-and-css-main/addbus.php";
+                </script>';
+        }
+    }
         else{
             die(mysqli_error($con));
         }

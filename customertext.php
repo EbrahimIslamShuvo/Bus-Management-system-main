@@ -1,15 +1,7 @@
 <?php
-    require_once("config\connect.php");
-    $sql = "SELECT * FROM contractus";
+    require_once("config\getdata.php");
+    $sql = "SELECT * FROM contractus ORDER BY id DESC";
     $result = $con->query($sql);
-    if (isset($_GET['email'])) {
-        $email = $_GET['email'];
-        
-        // Fetch user information
-        $user_query = "SELECT * FROM users WHERE user_email ='$email'";
-        $user_result = mysqli_query($con, $user_query);
-        $user_row = mysqli_fetch_array($user_result);
-    }
 
 ?>
 
@@ -37,12 +29,14 @@
                 <li><img src="https://i.ibb.co/xjc8mSN/dashboard.png"><p><a href="mainadmindash.php">Dashboard</a></p></li>
                 <li><img src="https://i.ibb.co/5x6gHXf/operator-icon-14.png"><p><a href="operator.php">Operator</a></p></li>
                 <li><img src="https://i.ibb.co/X7hhwzy/customers-icon-29.png"><p><a href="customerfmain.php">Customer</a></p></li>
-                <li><img src="https://i.ibb.co/Dz5S4C6/admit-one-ticket-icon-black-and-white-isolated-wite-free-vector.jpg"><p><a href="operator.php">Tickets</a></p></li>
+                <li><img src="https://i.ibb.co/Dz5S4C6/admit-one-ticket-icon-black-and-white-isolated-wite-free-vector.jpg"><p><a href="showsellticket.php">Tickets</a></p></li>
                 <li><img src="https://i.ibb.co/Xx9XbLV/help-desk-computer-icons-icon-design-technical-support-png-favpng-ZFKe-CZq-Pe-K0-Vnj-E5y-Nddw-FUb-X.jpg"><p><a href="customertext.php">Customers Text</a></p></li>
                 
             </ul>
             <ul>
-                <li><img src="https://i.ibb.co/YtX4sSw/logout.png"><p>Log Out</p></li>
+                <li><img src="https://i.ibb.co/YtX4sSw/logout.png">
+                <p><a href="config/logout.php">Log Out</a></p>
+                </li>
             </ul>
         </div>
 
@@ -57,11 +51,11 @@
                         <table class="table text-center">
                             <thead>
                                 <tr>
-                                    <th style="width: auto;">Bus ID</th>
-                                    <th style="width: auto;">Bus Name</th>
-                                    <th style="width: auto;">Customer Email</th>
-                                    <th style="width: auto;">Journey Date</th>
-                                    <th style="width: auto;">Seat</th>
+                                    <th style="width: auto;">First Name</th>
+                                    <th style="width: auto;">Last Name</th>
+                                    <th style="width: auto;">Email</th>
+                                    <th style="width: auto;">Phone</th>
+                                    <th style="width: auto;">Text</th>
                                     <th style="width: 300px;"></th>
                                 </tr>
                             </thead>
@@ -70,14 +64,13 @@
                                     while($row = mysqli_fetch_array($result)){
                                     ?>
                                     <tr style="border-bottom: 25px solid transparent;">
-                                        <td><?php echo $row['busid']?></td>
-                                        <td><?php echo $row['busname']?></td>
-                                        <td><?php echo $row['cus_email']?></td>
-                                        <td><?php echo $row['journey_date']?></td>
-                                        <td><?php echo $row['seat']?></td>
+                                        <td><?php echo $row['FirstName']?></td>
+                                        <td><?php echo $row['LastName']?></td>
+                                        <td><?php echo $row['Email']?></td>
+                                        <td><?php echo $row['Mobile']?></td>
+                                        <td><?php echo $row['Message']?></td>
                                         <td>
-                                            <a href="#" class="btn btn-primary" style="background-color: blue">Update</a>
-                                            <a href="#" class="btn btn-primary" style="background-color: red;">Delete</a>
+                                            <a href="config/delcustext.php?id=<?php echo $row['id']; ?>" class="btn btn-primary" style="background-color: red;">Delete</a>
 
                                         </td>
                                     </tr>

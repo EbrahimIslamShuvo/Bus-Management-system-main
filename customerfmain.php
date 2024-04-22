@@ -1,17 +1,8 @@
 <?php
-require_once ("config\connect.php");
+    require_once ("config\getdata.php");
 
-if (isset($_GET['email'])) {
-    $email = $_GET['email'];
-    // Fetch user information
-    $user_query = "SELECT * FROM users WHERE user_email ='$email'";
-    $user_result = mysqli_query($con, $user_query);
-    $user_row = mysqli_fetch_array($user_result);
-
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT * FROM users WHERE user_role != 'main admin'";
     $result = mysqli_query($con, $sql);
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -39,27 +30,27 @@ if (isset($_GET['email'])) {
             </div>
             <ul>
                 <li><img src="https://i.ibb.co/xjc8mSN/dashboard.png">
-                    <p><a href="mainadmindash.php?email=<?php echo $email; ?>">Dashboard</a></p>
+                    <p><a href="mainadmindash.php">Dashboard</a></p>
                 </li>
                 <li><img src="https://i.ibb.co/5x6gHXf/operator-icon-14.png">
-                    <p><a href="operator.php?email=<?php echo $email; ?>">Operator</a></p>
+                    <p><a href="operator.php">Operator</a></p>
                 </li>
                 <li><img src="https://i.ibb.co/X7hhwzy/customers-icon-29.png">
-                    <p><a href="customerfmain.php?email=<?php echo $email; ?>">Customer</a></p>
+                    <p><a href="customerfmain.php">Customer</a></p>
                 </li>
                 <li><img
                         src="https://i.ibb.co/Dz5S4C6/admit-one-ticket-icon-black-and-white-isolated-wite-free-vector.jpg">
-                    <p><a href="operator.php?email=<?php echo $email; ?>">Tickets</a></p>
+                    <p><a href="showsellticket.php">Tickets</a></p>
                 </li>
                 <li><img
                         src="https://i.ibb.co/Xx9XbLV/help-desk-computer-icons-icon-design-technical-support-png-favpng-ZFKe-CZq-Pe-K0-Vnj-E5y-Nddw-FUb-X.jpg">
-                    <p><a href="customertext.php?email=<?php echo $email; ?>">Customers Text</a></p>
+                    <p><a href="customertext.php">Customers Text</a></p>
                 </li>
 
             </ul>
             <ul>
                 <li><img src="https://i.ibb.co/YtX4sSw/logout.png">
-                    <p>Log Out</p>
+                <p><a href="config/logout.php">Log Out</a></p>
                 </li>
             </ul>
         </div>
@@ -79,6 +70,7 @@ if (isset($_GET['email'])) {
                                         <th style="width: auto;">Email</th>
                                         <th style="width: auto;">Password</th>
                                         <th style="width: auto;">Type</th>
+                                        <th style="width: auto;">Role</th>
                                         <th style="width: 300px;"></th>
                                     </tr>
                                 </thead>
@@ -91,8 +83,9 @@ if (isset($_GET['email'])) {
                                             <td><?php echo $row['user_email'] ?></td>
                                             <td><?php echo $row['user_password'] ?></td>
                                             <td><?php echo $row['user_type'] ?></td>
+                                            <td><?php echo $row['user_role'] ?></td>
                                             <td>
-                                                <a href="#" class="btn btn-primary" style="background-color: blue">Edit</a>
+                                                <a href="updateuser.php?mail=<?php echo $row['user_email']; ?>" class="btn btn-primary" style="background-color: blue">Edit</a>
                                                 <a href="config/deletecustomerconfig.php?email=<?php echo $row['user_email'] ?>& a_email=<?php echo $email ?>"
                                                     class="btn btn-primary" style="background-color: red;">Delete</a>
 

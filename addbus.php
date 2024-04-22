@@ -1,6 +1,7 @@
 <?php 
-    require_once('config/connect.php');
-    $query= "select *from buslist";
+    require_once('config/getdata.php');
+    $query= "SELECT * FROM buslist WHERE name = '{$user_row['user_role']}' ";
+
     $result=mysqli_query($con,$query);
 ?>
 
@@ -21,15 +22,15 @@
       <div class="user">
         <img src="https://i.ibb.co/JkCMRkq/avatar-people-person-profile-user-women-icon-icon-search-engine-23.png" class="userpic">
         <div>
-          <h2>Admin</h2>
-          <p>Adminastration@gmail.com</p>
+          <h2><?php echo $user_row['user_name']; ?></h2>
+          <p><?php echo $user_row['user_email']; ?></p>
         </div>
       </div>
       <ul>
         <li><img src="https://i.ibb.co/xjc8mSN/dashboard.png"><p><a href="operatorpannel.php">Dashboard</a></p></li>
         <li><img src="https://i.ibb.co/wYN1BgL/OIP.jpg"><p><a href="addbus.php">Bus</a></p></li>
         <li><img src="https://i.ibb.co/X7hhwzy/customers-icon-29.png"><p><a href="customershow.php">Customer</a></p></li>
-        <li><img src="https://i.ibb.co/Dz5S4C6/admit-one-ticket-icon-black-and-white-isolated-wite-free-vector.jpg"><p><a href="showsellticket.php">Tickets</a></p></li>
+        <li><img src="https://i.ibb.co/Dz5S4C6/admit-one-ticket-icon-black-and-white-isolated-wite-free-vector.jpg"><p><a href="showsellticketop.php">Tickets</a></p></li>
         <li><img src="https://i.ibb.co/S58vvpJ/route-icon-png-0.png"><p><a href="addroute.php">Route</a></p></li>
       </ul>
       <ul>
@@ -75,8 +76,7 @@
                             <td><?php echo $row['seat']?></td>
                             <td><?php echo $row['fare']?></td>
                             <td>
-                                <a href="#" class="btn btn-primary mb-3" style="background-color: blue">Edit</a>
-                                <a href="#" class="btn btn-primary" style="background-color: red;">Delete</a>
+                                <a href="config/deletebus.php?id=<?php echo $row['id']  ?>" class="btn btn-primary" style="background-color: red;">Delete</a>
                             </td>
                         </tr>
                         <?php
