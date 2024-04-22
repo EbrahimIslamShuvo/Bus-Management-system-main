@@ -17,19 +17,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($count == 1) {
             $user_type = $row['user_type'];
-            $username=$row['user_name'];
-            $sql="DELETE FROM activity;";
-            $result = mysqli_query($con ,$sql);
+            $username = $row['user_name'];
+            $sql = "DELETE FROM activity;";
+            $result = mysqli_query($con, $sql);
             $sql = "INSERT INTO activity VALUES ('$username','$email','$user_type','YES')";
-            $result = mysqli_query($con ,$sql);
-            $encoded_value = urlencode($email);
+            $result = mysqli_query($con, $sql);
 
-            if($user_type ==  'customer'){
-                header("Location: /Bus-Management-system-main/userdashboard.php?email=$encoded_value");
+            if ($user_type == 'customer') {
+                header("Location: /Bus-Management-system-main/userdashboard.php?email=<?php echo  $email; ?>");
             } elseif ($user_type == 'operator') {
-                header("Location: /Bus-Management-system-main/operatorpannel.php?email=$encoded_value");
+                header("Location: /Bus-Management-system-main/operatorpannel.php?email=<?php echo  $email; ?>");
             } elseif ($user_type == 'admin') {
-                header("Location: /Bus-Management-system-main/mainadmindash.php?email=$encoded_value");
+                header("Location: /Bus-Management-system-main/mainadmindash.php?email=<?php echo  $email; ?>");
             }
         } else {
             echo '<script>
