@@ -1,5 +1,37 @@
 <?php
 require_once ('config/connect.php');
+$query = "SELECT * FROM activity";
+$result = mysqli_query($con, $query);
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+$status = $row['status'];
+$user_query = "SELECT * FROM activity JOIN users ON activity.email = users.user_email WHERE activity.email = '" . $row['email'] . "'";
+
+if ($status == "YES") {
+  $name = $row["username"];
+  $email = $row["email"];
+  $user_type = $row["type"];
+  if ($user_type == 'customer') {
+    echo '<script>
+                    window.location.href = "userdashboard.php";
+                </script>';
+  } elseif ($user_type == 'operator') {
+    echo '<script>
+                    window.location.href = "operatorpannel.php";
+                </script>';
+  } elseif ($user_type == 'admin') {
+    echo '<script>
+                    window.location.href = "mainadmindash.php";
+                </script>';
+  }
+}
+?>
+
+
+
+
+
+<?php
+require_once ('config/connect.php');
 
 if (isset($_GET['email'])) {
   $email = $_GET['email'];

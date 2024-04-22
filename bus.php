@@ -92,7 +92,7 @@ $result2 = mysqli_query($con, $query2);
   </section>
   <section>
     <div class="mt-20 w-full bg-[#eaf9e7]">
-    <div class="text-5xl text-center my-3 bg-image"></div>
+      <div class="text-5xl text-center my-3 bg-image"></div>
 
 
       <div>
@@ -100,8 +100,9 @@ $result2 = mysqli_query($con, $query2);
           Search your favourite Bus
         </p>
         <div class="flex items-center justify-center">
-          <form class="my-20 w-full flex flex-col gap-5 items-center justify-center" action="ticketshow.php" method="POST">
-           <div class="flex sm:flex-row flex-col w-full sm:w-3/4 lg:w-2/4 items-center justify-center gap-5">
+          <form class="my-20 w-full flex flex-col gap-5 items-center justify-center" action="ticketshow.php"
+            method="POST">
+            <div class="flex sm:flex-row flex-col w-full sm:w-3/4 lg:w-2/4 items-center justify-center gap-5">
               <div class="flex flex-col items-start gap-y-1 justify-center w-3/4 sm:w-1/2">
                 <label for="from" class="text-xl font-roboto font-semibold">From</label>
                 <input type="text" name="from" id="from" placeholder="Enter your current city"
@@ -123,7 +124,7 @@ $result2 = mysqli_query($con, $query2);
               </div>
             </div>
             <button type="submit"
-              class="w-2/4 flex items-center justify-center bg-[#3fc49a] cursor-pointer hover:bg-[#3fc495f2] pl-5 px-3 py-2 border-none text-white text-xl font-semibold transition-all ease-in-out">
+              class="w-1/4 flex items-center justify-center bg-[#3fc49a] cursor-pointer hover:bg-[#3fc495f2] pl-5 px-3 py-2 border-none text-white text-xl font-semibold transition-all ease-in-out">
               Search
             </button>
           </form>

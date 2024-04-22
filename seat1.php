@@ -1,10 +1,5 @@
-The error in line 268 is likely due to a mix-up between PHP and JavaScript code. In that line, you are trying to access a JavaScript variable (`$opp`) within a PHP context. Since PHP is server-side and JavaScript is client-side, they cannot directly interact like that.
-
-To fix this, you need to properly integrate PHP and JavaScript. One way to do this is by passing the JavaScript variable's value to PHP via an AJAX request. Here's how you can modify the code to achieve this:
-
-```php
 <?php
-require_once('config/connect.php');
+require_once ('config/connect.php');
 $selectedseat = array();
 if (isset($_GET['busid']) && isset($_GET['date'])) {
     $id = $_GET['busid'];
@@ -78,7 +73,8 @@ if (isset($_GET['busid']) && isset($_GET['date'])) {
                         </div>
 
                         <div class="flex justify-between">
-                            <div class="bg-[#0307120D] p-2 lg:p-[20px] mt-[10px] lg:mt-[35px] rounded-lg text-[#030712CC]">
+                            <div
+                                class="bg-[#0307120D] p-2 lg:p-[20px] mt-[10px] lg:mt-[35px] rounded-lg text-[#030712CC]">
                                 Boarding point - <?php echo $row['dept_place']; ?>
                             </div>
                             <div class="bg-[#0307120D] p-2 lg:p-[20px] mt-[10px] lg:mt-[35px
@@ -90,8 +86,7 @@ if (isset($_GET['busid']) && isset($_GET['date'])) {
                     </div>
                 </div>
 
-                <img class="h-full ml-[20px] hidden lg:block" src="https://i.ibb.co/3k7mcNV/info-devider.png"
-                    alt="" />
+                <img class="h-full ml-[20px] hidden lg:block" src="https://i.ibb.co/3k7mcNV/info-devider.png" alt="" />
 
                 <div class="text-center flex flex-col justify-center mt-[60px] lg:mt-0 items-center ml-14 space-y-2">
                     <img src="https://i.ibb.co/brRdsvN/fare.png" alt="" />
@@ -104,14 +99,14 @@ if (isset($_GET['busid']) && isset($_GET['date'])) {
                 <div class="right w-[65%] mb-10 h-full  p-5">
                     <h1>Select Your Seat</h1>
 
-                    <div class="flex justify-between py-3 border-t-[2px] border-b-[2px] mt-[10px] border-gray-600 border-dotted">
+                    <div
+                        class="flex justify-between py-3 border-t-[2px] border-b-[2px] mt-[10px] border-gray-600 border-dotted">
                         <div class="flex">
                             <img src="https://i.ibb.co/m8VF0rR/seat-gray.png" alt="" />
                             <p>Available</p>
                         </div>
                         <div class="flex">
-                            <img
-                                src="https://i.ibb.co/8Kwdrs1/b4504969b49d200de36ab51f779156ec-single-seat-sofa-icon-by-vexels.png"
+                            <img src="https://i.ibb.co/8Kwdrs1/b4504969b49d200de36ab51f779156ec-single-seat-sofa-icon-by-vexels.png"
                                 alt="" style="width: 28px; hieght: 28px" />
                             <p>Booked</p>
                         </div>
@@ -241,8 +236,7 @@ if (isset($_GET['busid']) && isset($_GET['date'])) {
                             <h1>BDT <span id="grando">0</span></h1>
                         </div>
                     </div>
-                    <a id="don" href="#" class="btn w-full bg-[#1DD100] mt-4 text-white">NEXT</a>
-
+                    <button id="don" class="btn w-full bg-[#1DD100] mt-4 text-white">NEXT</button>
                     <div class="flex justify-around mt-4">
                         <a class="text-blue-400 underline cursor-pointer">Terms and conditions</a>
                         <a class="text-blue-400 underline cursor-pointer">Cancilation policy</a>
@@ -251,87 +245,14 @@ if (isset($_GET['busid']) && isset($_GET['date'])) {
             </section>
         </div>
     </div>
-    <script>
-        <?php
-        if (isset($_GET['busid']) && isset($_GET['date'])) {
-            $id = $_GET['busid'];
-            $date = $_GET['date'];
-            $query = "SELECT * FROM buslist WHERE id ='$id'";
-            $result = mysqli_query($con, $query);
-            $row = mysqli_fetch_array($result);
-            $perSetPrice = $row['fare'];
-        }
-        ?>
+    <script src="js/seat.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        document.addEventListener("DOMContentLoaded", function () {
-            var kbd = document.querySelectorAll(".kbd");
-            var perSetPrice = <?php echo json_encode($perSetPrice); ?>;
-            var arr = [];
-            kbd.forEach(function (op) {
-                op.addEventListener("click", function () {
-                    var opp = op.innerText;
-                    if (arr.includes(opp)) {
-                        console.log('same seat selected');
-                        return;
-                    }
-                    arr.push(opp);
-                    var dup = Array.from(new Set(arr));
-                    console.log(dup.length, 'duplicate', dup);
-
-                    if (dup.length <= 4) {
-                        op.style.background = '#67f851';
-                        var four = document.getElementById('four');
-                        var four1 = parseInt(four.innerText);
-                        var minus = four1 - 1;
-                        four.innerText = minus;
-                        var zero = document.getElementById('zero');
-                        var zero1 = parseInt(zero.innerText);
-                        var sum = zero1 + 1;
-                        zero.innerText = sum;
-
-                        var app = document.getElementById('pll');
-                        var divv = document.createElement('div');
-                        var makeApp = document.createElement('p');
-                        dup.forEach(function (value) {
-                            makeApp.innerText = value;
-                        });
-                        divv.appendChild(makeApp);
-                        var makeApp3 = document.createElement('p');
-                        makeApp3.innerText = perSetPrice;
-                        divv.appendChild(makeApp3);
-                        app.appendChild(divv);
-                        divv.style.width = '100%';
-                        divv.style.display = 'flex';
-                        divv.style.justifyContent = 'space-evenly';
-
-                        var bdt1 = document.getElementById('bdt1');
-                        var bd1 = parseInt(bdt1.innerText);
-                        var bdtSum = bd1 + perSetPrice;
-                        bdt1.innerText = bdtSum;
-
-                        var ds = document.getElementById('ds');
-                        if (dup.length >= 
-
-1) {
-                            ds.disabled = false;
-                        }
-                        console.log('value of seat:', opp);
-                        console.log('value of seat:', perSetPrice);
-                    } else {
-                        alert('You can only book maximum of 4 seats');
-                    }
-
-                    ds.addEventListener('click', function () {
-                        var hi = document.getElementById('hi');
-                        hi.innerHTML = 'sda';
-                    });
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>
 ```
 
-In this code, I've passed the PHP variable `$perSetPrice` to JavaScript so it can be used in the calculation. Additionally, I've fixed some minor issues in the HTML and JavaScript code. Make sure to adjust the AJAX request handling in your PHP script accordingly if you are sending additional data from the client to the server.
+In this code, I've passed the PHP variable `$perSetPrice` to JavaScript so it can be used in the calculation.
+Additionally, I've fixed some minor issues in the HTML and JavaScript code. Make sure to adjust the AJAX request
+handling in your PHP script accordingly if you are sending additional data from the client to the server.

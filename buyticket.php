@@ -1,25 +1,50 @@
 <?php
+// Include the database connection file
 require_once ('config/connect.php');
-$query = "SELECT * FROM activity";
-$result = mysqli_query($con, $query);
-$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-$status = $row['status'];
-if ($status == "YES") {
-    $email = $row["email"];
+
+if (isset($_POST['seatArray'])) {
+    // Decode the JSON data
+    $seats = json_decode($_POST['seatArray']);
+
+    // Check if decoding was successful
+    if ($seats !== null) {
+        // Prepare the SQL statement
+        $sql = "INSERT INTO selected (seat) VALUES (?)";
+
+        // Prepare the statement
+        $stmt = mysqli_prepare($con, $sql);
+
+        // Check if the statement was prepared successfully
+        if ($stmt) {
+            // Bind parameters and execute the statement for each seat
+            foreach ($seats as $seat) {
+                mysqli_stmt_bind_param($stmt, "s", $seat);
+                $result = mysqli_stmt_execute($stmt);
+
+                // Check if the execution was successful
+                if ($result) {
+                    echo "Seat inserted: $seat <br>";
+                } else {
+                    echo "Error inserting seat: $seat - " . mysqli_error($conn) . "<br>";
+                }
+            }
+            // Close the statement
+            mysqli_stmt_close($stmt);
+        } else {
+            echo "Error preparing statement: " . mysqli_error($conn);
+        }
+    } else {
+        echo "Error decoding JSON data";
+    }
+
+    // Optionally, you can send a response back to the JavaScript
+    // For example, if the operation was successful:
+    echo "1";
 } else {
-    echo '<script>
-                alert("do login first");
-                window.location.href = "/tickets-system-only-html-and-css-main/login.php";
-            </script>';
+    echo "No array received.";
 }
-$seat = array(); // Initialize the $seat array
 
-if (isset($_GET['seats'])) {
-    // Decode the JSON string back into an array
-    $seat = json_decode($_GET['seats'], true);
 
-    // Output the total number of elements in the $seat array
-    echo "Total number of seats: " . count($seat);
-}
-echo 'ami aschi'; // This line will be executed regardless of the condition above
+
+echo 'hi its me';
 ?>
