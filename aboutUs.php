@@ -148,21 +148,21 @@
         <div class="bg-white flex flex-col items-center justify-center py-10">
             <p class="text-center text-5xl font-bold font-serif pb-5">Our Values</p>
             <div class="w-3/4 flex items-center justify-center gap-5">
-                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5">
+                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5 rounded-3xl">
                     <i class="fa-solid fa-hand-holding-heart text-5xl bg-[#3fc496] rounded-full p-5"></i>
                     <p class="text-xl font-semibold">Love to innovate</p>
                     <p class="text-gray-500 text-justify">We are the pioneer of digitizing transportation in Bangladesh.
                         We innovate
                         services that solve daily hassles, all the while leveraging technology!</p>
                 </div>
-                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5">
+                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5 rounded-3xl">
                     <i class="fa-solid fa-shield-heart text-5xl bg-[#3fc496] rounded-full p-5"></i>
                     <p class="text-xl font-semibold">Committed to safety</p>
                     <p class="text-gray-500 text-justify">
                         We go the extra mile when it comes to our commitment to safety. Since the inception of Shohoz,
                         the company has gone above and beyond to ensure the safety of its valued passengers.</p>
                 </div>
-                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5">
+                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5 rounded-3xl">
                     <i class="fa-solid fa-handshake text-5xl bg-[#3fc496] rounded-full p-5"></i>
                     <p class="text-xl font-semibold">Believe in empowerment</p>
                     <p class="text-gray-500 text-justify">
@@ -175,7 +175,7 @@
     </section>
 
 
-
+    <!-- footer -->
     <section>
         <div class="flex flex-col w-full h-full">
             <div style="background-image: url('https://i.ibb.co/R4GY4rb/footer.jpg');"
@@ -246,26 +246,26 @@
                         <h1 class="text-2xl text-white underline decoration-white decoreation-1.5 mb-3">Quick Link</h1>
                         <div class="md:flex  items-center gap-x-10">
                             <div class="flex flex-col gap-y-3 mb-3 md:mb-0">
-                                <a href="/about"
+                                <a href="aboutUs.php"
                                     class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">About</a>
-                                <a href="/about"
+                                <a href="cookies.php"
                                     class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Cookie
                                     Policy</a>
-                                <a href="/about"
+                                <a href="booking.php"
                                     class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Booking
                                     Policy</a>
-                                <a href="/about"
+                                <a href="contact.php"
                                     class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Contact
                                     Us</a>
                             </div>
                             <div class="flex flex-col gap-y-3">
-                                <a href="/about"
+                                <a href="policy.php"
                                     class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Privacy
                                     Policy</a>
-                                <a href="/about"
+                                <a href="treams.php"
                                     class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Treams
                                     and conditon</a>
-                                <a href="/about"
+                                <a href="login.php"
                                     class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">My
                                     Account</a>
                             </div>

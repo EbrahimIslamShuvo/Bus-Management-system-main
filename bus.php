@@ -174,26 +174,20 @@ $result2 = mysqli_query($con, $query2);
   <!-- footer -->
   <section>
     <div class="flex flex-col w-full h-full">
-      <div style="background-image: url('https://i.ibb.co/R4GY4rb/footer.jpg')"
+      <div style="background-image: url('https://i.ibb.co/R4GY4rb/footer.jpg');"
         class="bg-cover bg-no-repeat bg-center h-[700px] text-center">
         <div class="flex flex-col justify-center items-center md:w-full h-full">
           <div class="bg-[#3fc495] rounded-lg px-10 py-6 mx-7 lg:m-0 lg:px-16 lg:py-10 text-white">
-            <h1 class="md:text-5xl text-3xl font-semibold md:pb-0 pb-3 md:leading-loose">
-              Subscribe our newsletter
-            </h1>
-            <p class="pb-3 text-justify">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-              sapiente labore, eius est architecto eos!
-            </p>
+            <h1 class="md:text-5xl text-3xl font-semibold md:pb-0 pb-3 md:leading-loose">Subscribe our newsletter</h1>
+            <p class="pb-3 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa sapiente labore,
+              eius est architecto eos!</p>
             <div
               class="md:w-11/12 sm:bg-white md:h-10 flex sm:flex-row flex-col sm:justify-center sm:items-center md:py-6 md:px-1 sm:border-2 sm:border-red-300 sm:rounded-full sm:overflow-hidden">
               <input type="text" placeholder="Enter your email"
                 class="sm:border-none rounded focus:outline-none w-full h-10 ps-5 text-black" name="subscribe"
                 id="subscribe" />
               <button
-                class="bg-red-500 hover:text-black duration-300 text-lg rounded-full font-semibold px-3 py-2 sm:mt-0 mt-4">
-                Subscribe
-              </button>
+                class="bg-red-500 hover:text-black duration-300 text-lg rounded-full font-semibold px-3 py-2 sm:mt-0 mt-4">Subscribe</button>
             </div>
           </div>
         </div>
@@ -204,14 +198,11 @@ $result2 = mysqli_query($con, $query2);
           <div class="flex flex-col gap-y-6 justify-center md:mr-16 lg:w-[30%]">
             <a href="/" class="w-44 h-20 ms-3">
               <img src="https://i.ibb.co/1KWBVYx/navlogo.png
-                " alt="logo" />
+                  " alt="logo" />
             </a>
-            <p class="text-white text-lg font-mono w-full text-justify">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Aspernatur labore ea alias sunt voluptate quaerat, quia facilis,
-              magnam rerum saepe id ducimus quibusdam doloremque dignissimos!
-              Expedita voluptatum quae possimus doloremque.
-            </p>
+            <p class="text-white text-lg font-mono w-full text-justify">Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Aspernatur labore ea alias sunt voluptate quaerat, quia facilis, magnam rerum saepe id
+              ducimus quibusdam doloremque dignissimos! Expedita voluptatum quae possimus doloremque.</p>
           </div>
           <div class="md:mr-0 md:mt-0 mt-5 mr-9 flex flex-col justify-center gap-y-6">
             <div class="flex flex-col justify-center">
@@ -220,9 +211,7 @@ $result2 = mysqli_query($con, $query2);
                 <p class="text-white text-xl">Email</p>
               </div>
               <div>
-                <p class="text-white text-xl underline decoration-white decoration-1.5">
-                  info@ur.com
-                </p>
+                <p class="text-white text-xl underline decoration-white decoration-1.5">info@ur.com</p>
               </div>
             </div>
             <div class="flex flex-col justify-center">
@@ -240,38 +229,35 @@ $result2 = mysqli_query($con, $query2);
                 <p class="text-white text-xl">Address</p>
               </div>
               <div>
-                <p class="text-white text-xl">
-                  Embankment Drive Road, Dhaka 1230
-                </p>
+                <p class="text-white text-xl ">Embankment Drive Road, Dhaka 1230</p>
               </div>
             </div>
+
           </div>
           <div class="flex flex-col justify-center lg:mt-0 mt-5">
-            <h1 class="text-2xl text-white underline decoration-white decoreation-1.5 mb-3">
-              Quick Link
-            </h1>
-            <div class="md:flex items-center gap-x-10">
+            <h1 class="text-2xl text-white underline decoration-white decoreation-1.5 mb-3">Quick Link</h1>
+            <div class="md:flex  items-center gap-x-10">
               <div class="flex flex-col gap-y-3 mb-3 md:mb-0">
-                <a href="/about"
+                <a href="aboutUs.php"
                   class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">About</a>
-                <a href="/about"
+                <a href="cookies.php"
                   class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Cookie
                   Policy</a>
-                <a href="/about"
+                <a href="booking.php"
                   class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Booking
                   Policy</a>
-                <a href="/about"
+                <a href="contact.php"
                   class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Contact
                   Us</a>
               </div>
               <div class="flex flex-col gap-y-3">
-                <a href="/about"
+                <a href="policy.php"
                   class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Privacy
                   Policy</a>
-                <a href="/about"
+                <a href="treams.php"
                   class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Treams
                   and conditon</a>
-                <a href="/about"
+                <a href="login.php"
                   class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">My
                   Account</a>
               </div>
@@ -308,11 +294,12 @@ $result2 = mysqli_query($con, $query2);
         <div class="flex md:flex-row flex-col justify-between items-center mx-20">
           <div class="md:mb-0 mb-3 flex gap-2 justify-center items-start">
             <i class="fa-regular fa-copyright text-white text-2xl"></i>
-            <p class="text-white font-think text-justify">
-              Copyright 2024. All Rights Reserved
+            <p class="text-white font-think text-justify">Copyright
+              2024. All Rights Reserved
             </p>
           </div>
           <div class="flex justify-center items-center gap-x-4">
+
             <img class="w-12 h-10" src="https://i.ibb.co/dPV1Nrz/visa.jpg" alt="rocket logo" />
             <img class="w-12 h-10" src="https://i.ibb.co/84cFppJ/rocket.png" alt="rocket logo" />
             <img class="w-12 h-10"
@@ -322,6 +309,7 @@ $result2 = mysqli_query($con, $query2);
           </div>
         </div>
       </div>
+
     </div>
   </section>
 </body>
