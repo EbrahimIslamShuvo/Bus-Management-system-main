@@ -20,6 +20,7 @@
         },
     };
 </script>
+<title>About US</title>
 
 <body>
     <!-- nav -->
