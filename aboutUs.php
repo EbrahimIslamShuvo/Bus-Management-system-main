@@ -114,14 +114,8 @@
                         <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/tc746JJ/ebrahim.png"
                             alt="M.Ebrahim Islam Shuvo">
                         <p class="font-semibold text-lg">M.Ebrahim Islam Shuvo</p>
-<<<<<<< HEAD
                         <span class="text-gray-600 font-normal text-center">Founding Managing Director <br /> & Chairman
                         </span>
-=======
-                        <span class="text-gray-600 font-normal">Director, Engineering</span>
-                        <span class="text-gray-600 font-normal">Founding Managing Director & Chairman </span>
-                        <span class="text-gray-600 font-normal">Director, Tickets</span>
->>>>>>> 625a419da22c6eea9e0039616cfc9a1111c4338d
                     </div>
                     <div class=" flex flex-col items-center justify-center">
                         <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/2gWRsDY/mostak.png"
