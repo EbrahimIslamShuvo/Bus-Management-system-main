@@ -110,8 +110,9 @@
             <div class="w-[90%]">
                 <p class="text-center text-5xl font-bold font-serif pb-5">Leadership Team</p>
                 <div class="flex items-center justify-center">
+
                     <div class=" flex flex-col items-center justify-center">
-                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/tc746JJ/ebrahim.png"
+                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/1G2jF4B/ebrahim.png"
                             alt="M.Ebrahim Islam Shuvo">
                         <p class="font-semibold text-lg">M.Ebrahim Islam Shuvo</p>
                         <span class="text-gray-600 font-normal text-center">Founding Managing Director <br /> & Chairman
@@ -125,6 +126,7 @@
                             <span class="text-gray-600 font-normal">Director, Engineering</span>
                             <span class="text-gray-600 font-normal">Director, Tickets</span>
                     </div>
+
                     <div class=" flex flex-col items-center justify-center">
                         <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/ZhjTFjc/salik.png"
                             alt="Ummay Salik Rumya Zinu">
@@ -140,9 +142,10 @@
                     <div class=" flex flex-col items-center justify-center">
                         <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/27H5CPC/summa.png"
                             alt="Sanjida Islam">
+                        <!-- <i class="fa-regular fa-user"></i> -->
                         <p class="font-semibold text-lg">Sanjida Islam</p>
                         <span class="text-gray-600 font-normal">Employee of the Uniride</span>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
