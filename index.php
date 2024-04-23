@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://kit.fontawesome.com/44c48dbaca.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="styyle.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -19,7 +19,7 @@
     },
   };
 </script>
-<title>Document</title>
+<title>Home</title>
 </head>
 
 <body>
@@ -100,50 +100,50 @@
         <p class="text-center sm:px-0 px-4 text-gray-500 py-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           Numquam, similique nesciunt sequi est voluptates totam.</p>
         <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-4 md:mx-28 mx-[5%] pt-8">
-        <div class="flex flex-col border-none rounded-lg bg-[#188a62] lg:items-center">
+          <div class="flex flex-col border-none rounded-lg bg-[#188a62] lg:items-center">
             <img class="rounded-t-lg" src="https://i.ibb.co/Zx6DBd5/e770f59e-98fb-4be6-bd19-20b305ca9908.png"
               alt="family tour photo" />
             <p class="py-3 text-center text-white text-xl">
-            Sylhet Eid Special Offer
+              Sylhet Eid Special Offer
             </p>
           </div>
           <div class="flex flex-col border-none rounded-lg bg-[#188a62] lg:items-center ">
             <img class="rounded-t-lg" src="https://i.ibb.co/Yhcpdfr/7cfef4b7-34ce-4dd7-95b2-5219eb31e2f7.jpg
               " alt="Booking tickets" />
             <p class="py-3 text-center text-white text-xl">
-            Rangpur Eid Special Offer
+              Rangpur Eid Special Offer
             </p>
           </div>
           <div class="flex flex-col border-none rounded-lg bg-[#188a62] lg:items-center">
             <img class="rounded-t-lg" src="https://i.ibb.co/PC8HKrw/c490568b-b7d1-4d4c-bc70-24078213e904.jpg"
               alt="family tour photo" />
             <p class="py-3 text-center text-white text-xl">
-            Khulna Eid Special Offer
+              Khulna Eid Special Offer
             </p>
           </div>
           <div class="flex flex-col border-none rounded-lg bg-[#188a62] lg:items-center">
             <img class="rounded-t-lg" src="https://i.ibb.co/FDdLLWJ/b5f15d68-6537-4d87-9495-378e0e50f746.png"
               alt="family tour photo" />
             <p class="py-3 text-center text-white text-xl">
-            Imperial Express Eid Campaign
+              Imperial Express Eid Campaign
             </p>
           </div>
           <div class="flex flex-col border-none rounded-lg bg-[#188a62] lg:items-center ">
             <img class="rounded-t-lg" src="https://i.ibb.co/nfXFfCV/0c6298c1-14b4-442c-8a48-a4c30712ee53.jpg
               " alt="Booking tickets" />
             <p class="py-3 text-center text-white text-xl">
-            Relax Transport Eid Campaign
+              Relax Transport Eid Campaign
             </p>
           </div>
           <div class="flex flex-col border-none rounded-lg bg-[#188a62] lg:items-center">
             <img class="rounded-t-lg" src="https://i.ibb.co/F3sPzn1/39b6bc46-04bf-4e86-87df-0dc0dad0d727.jpg"
               alt="family tour photo" />
             <p class="py-3 text-center text-white text-xl">
-            Tangail Eid Special Offer
+              Tangail Eid Special Offer
             </p>
           </div>
-          
-          
+
+
 
         </div>
       </div>
@@ -152,11 +152,20 @@
         <p class="text-center font-bold font-madimi text-5xl pt-10">
           Our Trusted Partners
         </p>
-        <p class="text-center text-5xl my-5">add some image</p>
+        <div id="imageContainer" class="flex justify-center items-center">
+          <!-- Images will be dynamically added here -->
+        </div>
+        <div class="flex items-center justify-between mx-10">
+          <!-- <div class="w-3/4"> -->
+          <button id="prevBtn" class="text-lg font-bold">Previous</button>
+          <button id="nextBtn" class="text-lg font-bold">Next</button>
+          <!-- </div> -->
+
+        </div>
       </div>
       <!-- {/* client review */} -->
       <div>
-        <p class="text-center font-bold font-madimi text-5xl py-10">
+        <p class=" text-center font-bold font-madimi text-5xl py-10">
           Clients Review
         </p>
         <div class="bg-[#188a62] flex items-center justify-center">
@@ -266,26 +275,26 @@
             <h1 class="text-2xl text-white underline decoration-white decoreation-1.5 mb-3">Quick Link</h1>
             <div class="md:flex  items-center gap-x-10">
               <div class="flex flex-col gap-y-3 mb-3 md:mb-0">
-                <a href="/about"
+                <a href="aboutUs.php"
                   class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">About</a>
-                <a href="/about"
+                <a href="cookies.php"
                   class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Cookie
                   Policy</a>
-                <a href="/about"
+                <a href="booking.php"
                   class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Booking
                   Policy</a>
-                <a href="/about"
+                <a href="contact.php"
                   class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Contact
                   Us</a>
               </div>
               <div class="flex flex-col gap-y-3">
-                <a href="/about"
+                <a href="policy.php"
                   class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Privacy
                   Policy</a>
-                <a href="/about"
+                <a href="treams.php"
                   class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">Treams
                   and conditon</a>
-                <a href="/about"
+                <a href="login.php"
                   class="text-xl text-white underline hover:text-black transition-all duration-200 hover:decoration-black decoration-white decoration-1.5">My
                   Account</a>
               </div>
@@ -341,7 +350,7 @@
     </div>
   </section>
 
-
+  <script src="js/index.js"></script>
 </body>
 
 </html>
