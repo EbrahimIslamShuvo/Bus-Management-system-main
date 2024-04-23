@@ -134,6 +134,48 @@ $result2 = mysqli_query($con, $query2);
     </div>
   </section>
 
+  <div class="flex flex-col items-center justify-center w-full h-full py-10">
+    <hr class="my-2 bg-gray-400 mr-2 h-1 w-full" />
+    <p class="text-2xl font-bold text-center py-3">Buy bus tickets in 3 easy steps</p>
+    <hr class="my-2 bg-gray-400 mr-2 h-1 w-full" />
+    <div class="flex items-center justify-center gap-5 py-5">
+      <div class="flex items-center justify-center bg-white rounded px-3 py-2 gap-4">
+        <i class="fa-solid fa-magnifying-glass py-3 px-4 text-5xl text-white rounded bg-[#3fc496]"></i>
+        <div>
+          <p class="text-[#3fc496] text-2xl font-bold">Search</p>
+          <p>Choose your origin, destination, journey <br /> dates and search for buses</p>
+        </div>
+      </div>
+      <div class="flex items-center justify-center bg-white rounded px-3 py-2 gap-4">
+        <i class="fa-solid fa-bus-simple text-5xl py-3 px-4 text-white rounded bg-[#3fc496]"></i>
+        <div>
+          <p class="text-[#3fc496] text-2xl font-bold">Select</p>
+          <p>
+            Select your desired trip and choose your seats</p>
+        </div>
+      </div>
+      <div class="flex items-center justify-center bg-white rounded px-3 py-2 gap-4">
+        <i class="fa-solid fa-bangladeshi-taka-sign py-3 px-4 text-5xl text-white rounded bg-[#3fc496]"></i>
+        <div>
+          <p class="text-[#3fc496] text-2xl font-bold">Pay</p>
+          <p>Choose your origin, destination, journey <br /> dates and search for buses</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="flex items-center justify-between gap-10">
+      <div class="flex items-center justify-center bg-white rounded px-16 py-3 gap-2">
+        <i class="fa-solid fa-lock text-[#3fc496]"></i>
+        <p class="text-xl">Safe and Secure online payments</p>
+      </div>
+      <div class="flex items-center justify-center bg-white rounded px-16 py-3 gap-2">
+        <i class="fa-solid fa-house text-[#3fc496]"></i>
+        <p class="text-xl"> Cash on Delivery available</p>
+      </div>
+    </div>
+  </div>
+
+
   <div class="operator-sec  w-full bg-[#eaf9e7]">
     <div class="operator-list ml-10 mb-5">
       <h4 class="mb-5" style="font-size: 25px; font-weight: bold;">Available Bus Operator List</h4>
@@ -152,7 +194,7 @@ $result2 = mysqli_query($con, $query2);
     </div>
   </div>
 
-  <div class="route-sec  w-full bg-[#eaf9e7]">
+  <div class="route-sec  w-full bg-[#eaf9e7] py-10">
     <div class="route ml-10 mb-5">
       <h4 class="mb-5" style="font-size: 25px; font-weight: bold;">Available Bus Route</h4>
       <hr class="my-2 bg-gray-400 mr-2 h-1" />
@@ -197,8 +239,7 @@ $result2 = mysqli_query($con, $query2);
         <div class="lg:flex md:grid md:grid-cols-2 justify-around items-center py-20 px-11">
           <div class="flex flex-col gap-y-6 justify-center md:mr-16 lg:w-[30%]">
             <a href="/" class="w-44 h-20 ms-3">
-              <img src="https://i.ibb.co/1KWBVYx/navlogo.png
-                  " alt="logo" />
+              <img src="https://i.ibb.co/1KWBVYx/navlogo.png" alt="logo" />
             </a>
             <p class="text-white text-lg font-mono w-full text-justify">Lorem ipsum dolor sit amet consectetur
               adipisicing elit. Aspernatur labore ea alias sunt voluptate quaerat, quia facilis, magnam rerum saepe id

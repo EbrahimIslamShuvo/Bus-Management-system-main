@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/44c48dbaca.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styyle.css">
-</head>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    clifford: "#da373d",
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: "#da373d",
+                    },
                 },
             },
-        },
-    };
-</script>
+        };
+    </script>
+    <title>Terms and conditions</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-<body>
-    <!-- nav -->
+</head>
+
+<body class="bg-[#eaf9e7]">
     <section class="nav">
         <div class="md:shadow-lg fixed w-full top-0 z-10 left-0">
             <nav class="bg-[#3FC495]">
@@ -35,7 +35,7 @@
                             class="md:flex px-10 md:px-0 lg:flex-row lg:space-x-8 lg:mt-0 pb-5 md:pb-0 md:mb-0 absolute md:static bg-[#3FC495] md:z-auto z-[-1] left-0 w-full transition-all ease-in duration-500 md:opacity-100 opacity-0">
                             <li>
                                 <a href="bus.php"
-                                    class="hover:bg-white hover:text-black hover:rounded-full p-5 duration-500 flex justify-center items-center h-8 gap-2 rounded-full text-white">
+                                    class="hover:bg-white hover:text-black hover:rounded-full p-5 duration-500 flex justify-center items-center h-5 gap-2 rounded-full text-white">
                                     <i class="fa-solid fa-bus"></i>
                                     <span class="font-semibold">Bus</span>
                                 </a>
@@ -82,100 +82,100 @@
         </div>
     </section>
 
-    <!-- main page -->
-    <section class="mt-20">
-        <div class="bg-white flex items-center justify-center py-10">
-            <div class="w-3/4">
-                <p class="text-center text-5xl font-bold font-serif pb-5">Who we are?</p>
-                <div>
-                    <p class="text-justify font-mono text-xl font-think">We started our journey back in 2024 with one
-                        goal in mind- to make lives
-                        easier!
-                        As a technology-first company, we develop tech-driven solutions for the everyday challenges of
-                        Bangladeshi people. Uniride , a pioneer in Bangladesh’s travel industry is now the largest
-                        online
-                        ticket destination in the country. We put customers first and facilitate them with the freedom
-                        to
-                        choose from hundreds of operators and routes, compare prices, offer the best deals and
-                        safeguards-
-                        all within a few minutes and with just a few taps on their phone.
 
-                        Uniride is more than just a ticketing platform, Uniride is a lifestyle! We empower our people by
-                        solving and simplifying their travel needs and let them enjoy travelling, the Uniride way!</p>
-                </div>
-            </div>
-        </div>
-        <div class="bg-[#e9f5e6] flex items-center justify-center py-10">
-            <div class="w-[90%]">
-                <p class="text-center text-5xl font-bold font-serif pb-5">Leadership Team</p>
-                <div class="flex items-center justify-center">
-                    <div class=" flex flex-col items-center justify-center">
-                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/1G2jF4B/ebrahim.png"
-                            alt="M. Ebrahim Islam Shuvo">
-                        <p class="font-semibold text-lg">M.Ebrahim Islam Shuvo</p>
-                        <span class="text-gray-600 font-normal text-center">Founding Managing Director <br /> & Chairman
-                        </span>
-                    </div>
-                    <div class=" flex flex-col items-center justify-center">
-                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/YkQ4kVd/mostak.png"
-                            alt="Mostak Shahariyar">
-                        <p class="font-semibold text-lg">Mostak Shahariyar</p>
-                        <span class="text-gray-600 font-normal text-center">CEO AND Co-founder
-                            <span class="text-gray-600 font-normal">Director, Engineering</span>
-                            <span class="text-gray-600 font-normal">Director, Tickets</span>
-                    </div>
-                    <div class=" flex flex-col items-center justify-center">
-                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/ZhjTFjc/salik.png"
-                            alt="Ummay Salik Rumya Zinu">
-                        <p class="font-semibold text-lg">Ummay Salik Rumya Zinu</p>
-                        <span class="text-gray-600 font-normal">Employee of the Uniride</span>
-                    </div>
-                    <div class=" flex flex-col items-center justify-center">
-                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/27H5CPC/summa.png"
-                            alt="Summa Akter Midu">
-                        <p class="font-semibold text-lg">Summa Akter Midu</p>
-                        <span class="text-gray-600 font-normal">Employee of the Uniride</span>
-                    </div>
-                    <div class=" flex flex-col items-center justify-center">
-                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/27H5CPC/summa.png"
-                            alt="Sanjida Islam">
-                        <p class="font-semibold text-lg">Sanjida Islam</p>
-                        <span class="text-gray-600 font-normal">Employee of the Uniride</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white flex flex-col items-center justify-center py-10">
-            <p class="text-center text-5xl font-bold font-serif pb-5">Our Values</p>
-            <div class="w-3/4 flex items-center justify-center gap-5">
-                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5 rounded-2xl">
-                    <i class="fa-solid fa-hand-holding-heart text-5xl bg-[#3fc496] rounded-full p-5"></i>
-                    <p class="text-xl font-semibold">Love to innovate</p>
-                    <p class="text-gray-500 text-justify">We are the pioneer of digitizing transportation in Bangladesh.
-                        We innovate
-                        services that solve daily hassles, all the while leveraging technology!</p>
-                </div>
-                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5 rounded-2xl">
-                    <i class="fa-solid fa-shield-heart text-5xl bg-[#3fc496] rounded-full p-5"></i>
-                    <p class="text-xl font-semibold">Committed to safety</p>
-                    <p class="text-gray-500 text-justify">
-                        We go the extra mile when it comes to our commitment to safety. Since the inception of Shohoz,
-                        the company has gone above and beyond to ensure the safety of its valued passengers.</p>
-                </div>
-                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5 rounded-2xl">
-                    <i class="fa-solid fa-handshake text-5xl bg-[#3fc496] rounded-full p-5"></i>
-                    <p class="text-xl font-semibold">Believe in empowerment</p>
-                    <p class="text-gray-500 text-justify">
-                        We absolutely believe in the economic empowerment of Bangladeshi people. Thus, offering freedom
-                        to choose from the multiple services to make life easier.</p>
-                </div>
+    <section class="flex flex-col items-center justify-center mt-20 pb-10">
+        <p class="text-xl py-10 font-semibold">Terms and conditions</p>
+        <p class="font-mono w-3/4 text-justify">Terms of use
+            uniride.com is an online ticketing service. We do not operate any buslines of our own.
 
-            </div>
-        </div>
+            1. Shohoz.com's liabilities are limited to:
+            Issuing a valid ticket for its network of transportation operators/event organizers (“operators”).
+            Providing refund and support in the event of cancellation as per Shohoz.com’s policy
+            Our liability does not include the following:
+            The operator's vehicle/event not departing / reaching on time.
+            The bus operator's employees being rude.
+            The operator's seats etc. not being up to the customer's expectation.
+            The operator cancelling the trip, changing the type of vehicle or changing the seat.
+            The baggage of the customer getting lost / stolen /damaged.
+            2. Passengers are requested to arrive at the boarding point 30 minutes prior to bus departure. If not, the
+            ticket is deemed cancelled.
+
+            3. Passengers need to bring a paper copy of the ticket at boarding or they may not be allowed to board the
+            vehicle or attend the event. Without printed copy, customers taking digital copy of the e-tickets will be at
+            their own risk of not being being able to travel/attend the event.
+
+            4. The operator reserves the right to cancel/delay trips/events, change vehicles/venue and change seats due
+            to unavoidable reasons.
+
+            5. Luggage policy is as per operator’s policies. The operator or Shohoz does not bear any consequences for
+            the passenger carrying illegal goods.
+
+            Communication Policy
+            1. By accepting the terms and conditions the customer accepts that Shohoz.com may send the alerts to the
+            mobile phone number provided by the customer while registering for the service or to any such number
+            replaced and informed by the customer. The customer acknowledges that the alerts will be received only if
+            the mobile phone is in ‘On’ mode to receive the SMS. If the mobile phone is in ‘Off’’ mode then the customer
+            may not get / get after delay any alerts sent during such period.
+
+            2. Shohoz.com will make best efforts to provide the service and it shall be deemed that the customer shall
+            have received the information sent from Shohoz.com as an alert on the mobile phone number provided during
+            the course of ticket booking and Shohoz.com shall not be under any obligation to confirm the authenticity of
+            the person(s) receiving the alert. The customer cannot hold Shohoz.com liable for non-availability of the
+            service in any manner whatsoever.
+
+            3. The customer acknowledges that the SMS service provided by Shohoz.com is an additional facility provided
+            for the customer’s convenience and that it may be susceptible to error, omission and/ or inaccuracy. In the
+            event the customer observes any error in the information provided in the alert, Shohoz.com shall be
+            immediately informed about the same by the customer and Shohoz.com will make best possible efforts to
+            rectify the error as early as possible. The customer shall not hold Shohoz.com liable for any loss, damages,
+            claim, expense including legal cost that may be incurred/ suffered by the customer on account of the SMS
+            facility.
+
+            4. The customer acknowledges that the clarity, readability, accuracy, and promptness of providing the
+            service depend on many factors including the infrastructure, connectivity of the service provider.
+            Shohoz.com shall not be responsible for any non-delivery, delayed delivery or distortion of the alert in any
+            way whatsoever.
+
+            5. The customer agrees to indemnify and hold harmless Shohoz.com and the SMS/email service provider
+            including its officials from any damages, claims, demands, proceedings, loss, cost, charges and expenses
+            whatsoever including legal charges and attorney fees which Shohoz.com and the SMS/email service provider may
+            at any time incur, sustain, suffer or be put to as a consequence of or arising out of (i) misuse, improper
+            or fraudulent information provided by the customer, (ii) the customer providing incorrect number/address or
+            providing a number/address that belongs to that of an unrelated third party, and/or (iii) the customer
+            receiving any message relating to the reservation number, travel itinerary information, booking
+            confirmation, modification to a ticket, cancellation of ticket, change in bus schedule, delay, and/or
+            rescheduling from Shohoz.com and/or the SMS/email service provider.
+
+            6. By accepting the terms and conditions the customer acknowledges and agrees that Shohoz.com may call the
+            mobile phone number/or email provided by the customer while registering for the service or to any such
+            number/address replaced and informed by the customer, for the purpose of collecting feedback from the
+            customer regarding their travel, the bus facilities and/or services of the bus operator.
+
+            Miscellaneous
+            To the extent permitted by law, these terms and conditions and the provision of our services shall be
+            governed by and construed in accordance with Bangladesh law. You agree to resolve amicably, first and
+            foremost with Shohoj Limited, any dispute or claim related to the website or related to any services or
+            products provided or any representations made by us. You also agree that in the event that you have
+            contacted us and subsequent to discussion with Shohoj Limited, if we fail to resolve your claims within 60
+            days, you may refer the matter to arbitration and all such claims shall be resolved by binding arbitration.
+            Any dispute arising out of these general terms and conditions and our services shall exclusively be
+            submitted to the competent courts in Dhaka, Bangladesh. You also agree and confirm that failure to comply
+            with such instructions shall result in a breach of Terms and Shohoj Limited will not held as liable as such.
+
+            If any provision of these terms and conditions is or becomes invalid, unenforceable or non-binding, you
+            shall remain bound by all other provisions hereof. In such event, such invalid provision shall nonetheless
+            be enforced to the fullest extent permitted by applicable law, and you will at least agree to accept a
+            similar effect as the invalid, unenforceable or non-binding provision, given the contents and purpose of
+            these terms and conditions.
+
+            Due to maintenance demand service charges might be higher than usual during Eid period.
+
+            Note: Terms and conditions might time to time update or change without any notice.
+
+        </p>
     </section>
 
 
-    <!-- footer -->
     <section>
         <div class="flex flex-col w-full h-full">
             <div style="background-image: url('https://i.ibb.co/R4GY4rb/footer.jpg');"
@@ -203,8 +203,7 @@
                 <div class="lg:flex md:grid md:grid-cols-2 justify-around items-center py-20 px-11">
                     <div class="flex flex-col gap-y-6 justify-center md:mr-16 lg:w-[30%]">
                         <a href="/" class="w-44 h-20 ms-3">
-                            <img src="https://i.ibb.co/1KWBVYx/navlogo.png
-                  " alt="logo" />
+                            <img src="https://i.ibb.co/1KWBVYx/navlogo.png" alt="logo" />
                         </a>
                         <p class="text-white text-lg font-mono w-full text-justify">Lorem ipsum dolor sit amet
                             consectetur
@@ -320,6 +319,7 @@
 
         </div>
     </section>
+
 </body>
 
 </html>
