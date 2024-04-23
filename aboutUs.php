@@ -20,6 +20,7 @@
         },
     };
 </script>
+<title>About US</title>
 
 <body>
     <!-- nav -->
@@ -110,14 +111,20 @@
                 <p class="text-center text-5xl font-bold font-serif pb-5">Leadership Team</p>
                 <div class="flex items-center justify-center">
                     <div class=" flex flex-col items-center justify-center">
-                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/1G2jF4B/ebrahim.png"
-                            alt="M. Ebrahim Islam Shuvo">
+                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/tc746JJ/ebrahim.png"
+                            alt="M.Ebrahim Islam Shuvo">
                         <p class="font-semibold text-lg">M.Ebrahim Islam Shuvo</p>
+<<<<<<< HEAD
                         <span class="text-gray-600 font-normal text-center">Founding Managing Director <br /> & Chairman
                         </span>
+=======
+                        <span class="text-gray-600 font-normal">Director, Engineering</span>
+                        <span class="text-gray-600 font-normal">Founding Managing Director & Chairman </span>
+                        <span class="text-gray-600 font-normal">Director, Tickets</span>
+>>>>>>> 625a419da22c6eea9e0039616cfc9a1111c4338d
                     </div>
                     <div class=" flex flex-col items-center justify-center">
-                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/YkQ4kVd/mostak.png"
+                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/2gWRsDY/mostak.png"
                             alt="Mostak Shahariyar">
                         <p class="font-semibold text-lg">Mostak Shahariyar</p>
                         <span class="text-gray-600 font-normal text-center">CEO AND Co-founder
@@ -141,7 +148,7 @@
                             alt="Sanjida Islam">
                         <p class="font-semibold text-lg">Sanjida Islam</p>
                         <span class="text-gray-600 font-normal">Employee of the Uniride</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
