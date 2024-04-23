@@ -23,13 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $sql = "INSERT INTO activity VALUES ('$username','$email','$user_type','YES')";
             $result = mysqli_query($con ,$sql);
             echo '<script>
-                window.location.href = "/tickets-system-only-html-and-css-main/bus.php";
+                window.location.href = "/Bus-Management-system-main/bus.php";
             </script>';
             
         } else {
             echo '<script>
                 alert("Login failed. Username or password invalid");
-                window.location.href = "/tickets-system-only-html-and-css-main/login.php";
+                window.location.href = "/Bus-Management-system-main/loginticket.php";
             </script>';
 
         }
