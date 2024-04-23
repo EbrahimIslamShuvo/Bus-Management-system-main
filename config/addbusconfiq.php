@@ -28,20 +28,20 @@ $_SERVER['REQUEST_METHOD']='POST';
                     if($result){
                         echo '<script>
                         alert("New Bus added successfully");
-                        window.location.href = "/tickets-system-only-html-and-css-main/addbus.php";
+                        window.location.href = "/Bus-Management-system-main/addbus.php";
                     </script>';
                     }
                     else{
                         echo '<script>
                         alert("An error occur");
-                        window.location.href = "/tickets-system-only-html-and-css-main/addbus.php";
+                        window.location.href = "/Bus-Management-system-main/addbus.php";
                     </script>';
                     }
             }
             else{
                 echo '<script>
                     alert("This bus already exist.");
-                    window.location.href = "/tickets-system-only-html-and-css-main/addbus.php";
+                    window.location.href = "/Bus-Management-system-main/addbus.php";
                 </script>';
     
             }
@@ -49,7 +49,7 @@ $_SERVER['REQUEST_METHOD']='POST';
         else{
             echo '<script>
                     alert("You are not authorize person to add this name bus");
-                    window.location.href = "/tickets-system-only-html-and-css-main/addbus.php";
+                    window.location.href = "/Bus-Management-system-main/addbus.php";
                 </script>';
         }
     }

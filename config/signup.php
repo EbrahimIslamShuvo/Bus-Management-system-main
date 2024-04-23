@@ -22,21 +22,21 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             if($result){
                 echo '<script>
                     alert("New account created successfully");
-                    window.location.href = "/tickets-system-only-html-and-css-main/login.php";
+                    window.location.href = "/Bus-Management-system-main/login.php";
                 </script>';
 
             }
             else{
                 echo '<script>
                     alert("An error accour");
-                    window.location.href = "\tickets-system-only-html-and-css-main\login.php";
+                    window.location.href = "\Bus-Management-system-main\login.php";
                 </script>';
             }
         }
         else{
             echo '<script>
                 alert("You already have an account using this email.");
-                window.location.href = "/tickets-system-only-html-and-css-main/login.php";
+                window.location.href = "/Bus-Management-system-main/login.php";
             </script>';
 
         }

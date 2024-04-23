@@ -1,21 +1,61 @@
 <?php
-require_once ('config/connect.php');
-$selectedseat = array();
+require_once ('config/getdata.php');
+
+// Check if the database connection is established successfully
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Delete all records from 'selected' table
+$sql_delete = "DELETE FROM selected";
+if (!mysqli_query($con, $sql_delete)) {
+    echo "Error deleting records: " . mysqli_error($con);
+}
+
+// Check if 'busid' and 'date' parameters are set in the URL
 if (isset($_GET['busid']) && isset($_GET['date'])) {
     $id = $_GET['busid'];
     $date = $_GET['date'];
+
+    // Fetch bus details from 'buslist' table based on 'id'
     $query = "SELECT * FROM buslist WHERE id ='$id'";
     $result = mysqli_query($con, $query);
-    $row = mysqli_fetch_array($result);
+    if (!$result) {
+        echo "Error fetching bus details: " . mysqli_error($con);
+    } else {
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    }
+
+    // Fetch bus details again (optional)
+    $sql_s = "SELECT * FROM buslist WHERE id='$id'";
+    $result_s = mysqli_query($con, $sql_s);
+    if (!$result_s) {
+        echo "Error fetching bus details: " . mysqli_error($con);
+    } else {
+        $row_s = mysqli_fetch_array($result_s, MYSQLI_ASSOC);
+    }
+
+    // Fetch sold tickets count for the specified bus and date
+    $sql_sold = "SELECT * FROM sellticket WHERE busid= '$id' AND journey_date = '$date'";
+    $result_sold = mysqli_query($con, $sql_sold);
+    if (!$result_sold) {
+        echo "Error fetching sold tickets: " . mysqli_error($con);
+    } else {
+        $count_seat = mysqli_num_rows($result_sold);
+    }
+
+    // Calculate remaining seats
+    $left_seat = $row_s['seat'] - $count_seat;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hero Traveler</title>
+    <title><?php echo $row['name']; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -53,7 +93,7 @@ if (isset($_GET['busid']) && isset($_GET['date'])) {
                             </div>
                             <a class="btn bg-[#1dd1001a] text-[#67f851]"><img src="./images/seat-green.png" alt="" />
                                 <span id="four">
-                                    <?php echo $row['seat']; ?>
+                                    <?php echo $left_seat; ?>
                                 </span>
                                 Seat Left
                             </a>
@@ -126,80 +166,489 @@ if (isset($_GET['busid']) && isset($_GET['date'])) {
                         <div class="flex justify-between mt-6">
                             <div class="mt-5 flex items-center justify-center space-x-7">
                                 <p>A</p>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">A1</kbd>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">A2</kbd>
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'A1'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>A1</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">A1</kbd>';
+                                    }
+                                ?>
+
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'A2'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>A2</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">A2</kbd>';
+                                    }
+                                ?>
                             </div>
                             <div class="mt-5 flex items-center justify-center space-x-7">
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">A3</kbd>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">A4</kbd>
+                            <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'A3'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>A3</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">A3</kbd>';
+                                    }
+                                ?>
+
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'A4'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>A4</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">A4</kbd>';
+                                    }
+                                ?>
                             </div>
                         </div>
                         <div class="flex justify-between mt-6">
                             <div class="mt-5 flex items-center justify-center space-x-7">
                                 <p>B</p>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">B1</kbd>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">B2</kbd>
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'B1'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>B1</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">B1</kbd>';
+                                    }
+                                ?>
+
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'B2'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>B2</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">B2</kbd>';
+                                    }
+                                ?>
                             </div>
                             <div class="mt-5 flex items-center justify-center space-x-7">
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">B3</kbd>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">B4</kbd>
+                            <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'B3'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>B3</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">B3</kbd>';
+                                    }
+                                ?>
+
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'B4'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>B4</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">B4</kbd>';
+                                    }
+                                ?>
                             </div>
                         </div>
+
                         <div class="flex justify-between mt-6">
                             <div class="mt-5 flex items-center justify-center space-x-7">
                                 <p>C</p>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">C1</kbd>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">C2</kbd>
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'C1'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>C1</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">C1</kbd>';
+                                    }
+                                ?>
+
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'C2'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>C2</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">C2</kbd>';
+                                    }
+                                ?>
                             </div>
                             <div class="mt-5 flex items-center justify-center space-x-7">
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">C3</kbd>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">C4</kbd>
+                            <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'C3'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>C3</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">C3</kbd>';
+                                    }
+                                ?>
+
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'C4'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>C4</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">C4</kbd>';
+                                    }
+                                ?>
                             </div>
                         </div>
+
                         <div class="flex justify-between mt-6">
                             <div class="mt-5 flex items-center justify-center space-x-7">
                                 <p>D</p>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">D1</kbd>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">D2</kbd>
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'D1'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>D1</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">D1</kbd>';
+                                    }
+                                ?>
+
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'D2'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>D2</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">D2</kbd>';
+                                    }
+                                ?>
                             </div>
                             <div class="mt-5 flex items-center justify-center space-x-7">
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">D3</kbd>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">D4</kbd>
+                            <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'D3'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>D3</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">D3</kbd>';
+                                    }
+                                ?>
+
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'D4'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>D4</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">D4</kbd>';
+                                    }
+                                ?>
                             </div>
                         </div>
+
                         <div class="flex justify-between mt-6">
                             <div class="mt-5 flex items-center justify-center space-x-7">
                                 <p>E</p>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">E1</kbd>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">E2</kbd>
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'E1'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>E1</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">E1</kbd>';
+                                    }
+                                ?>
+
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'E2'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>E2</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">E2</kbd>';
+                                    }
+                                ?>
                             </div>
                             <div class="mt-5 flex items-center justify-center space-x-7">
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">E3</kbd>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">E4</kbd>
+                            <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'E3'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>E3</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">E3</kbd>';
+                                    }
+                                ?>
+
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'E4'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>E4</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">E4</kbd>';
+                                    }
+                                ?>
                             </div>
                         </div>
+
                         <div class="flex justify-between mt-6">
                             <div class="mt-5 flex items-center justify-center space-x-7">
                                 <p>F</p>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">F1</kbd>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">F2</kbd>
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'F1'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>F1</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">F1</kbd>';
+                                    }
+                                ?>
+
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'F2'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>F2</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">F2</kbd>';
+                                    }
+                                ?>
                             </div>
                             <div class="mt-5 flex items-center justify-center space-x-7">
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5
+                            <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'F3'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>F3</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">F3</kbd>';
+                                    }
+                                ?>
 
- rounded">F3</kbd>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">F4</kbd>
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'F4'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>F4</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">F4</kbd>';
+                                    }
+                                ?>
                             </div>
                         </div>
+
                         <div class="flex justify-between mt-6">
                             <div class="mt-5 flex items-center justify-center space-x-7">
                                 <p>G</p>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">G1</kbd>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">G2</kbd>
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'G1'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>G1</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">G1</kbd>';
+                                    }
+                                ?>
+
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'G2'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>G2</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">G2</kbd>';
+                                    }
+                                ?>
                             </div>
                             <div class="mt-5 flex items-center justify-center space-x-7">
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">G3</kbd>
-                                <kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">G4</kbd>
+                            <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'G3'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>G3</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">G3</kbd>';
+                                    }
+                                ?>
+
+                                <?php
+                                    $sql= "SELECT * FROM sellticket WHERE (busid= '$id' and journey_date = '$date') and seat = 'G4'" ;
+                                    $result = mysqli_query($con,$sql);
+                                    if (!$result) {
+                                        echo "Error fetching select seat: " . mysqli_error($con);
+                                    } else {
+                                        $count_seat = mysqli_num_rows($result);
+                                    }
+                                    if($count_seat>0){
+                                        echo '<kbd class="bg-purple-200 py-3 px-5 rounded" disable>G4</kbd>';
+                                    }
+                                    else{
+                                        echo '<kbd class="kbd cursor-pointer bg-gray-200 py-3 px-5 rounded">G4</kbd>';
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -236,7 +685,7 @@ if (isset($_GET['busid']) && isset($_GET['date'])) {
                             <h1>BDT <span id="grando">0</span></h1>
                         </div>
                     </div>
-                    <button id="don" href="" class="btn w-full bg-[#1DD100] mt-4 text-white">NEXT</button>
+                    <a id="don" href="finish.php?id=<?php echo $id; ?>&name=<?php echo $row['name']; ?>&date=<?php echo $date; ?>" class="btn w-full bg-[#1DD100] mt-4 text-white">NEXT</a>
                     <div class="flex justify-around mt-4">
                         <a class="text-blue-400 underline cursor-pointer">Terms and conditions</a>
                         <a class="text-blue-400 underline cursor-pointer">Cancilation policy</a>
@@ -251,4 +700,3 @@ if (isset($_GET['busid']) && isset($_GET['date'])) {
 </body>
 
 </html>
-```

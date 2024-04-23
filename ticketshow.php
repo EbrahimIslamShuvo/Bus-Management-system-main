@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       },
     };
   </script>
-  <title>Document</title>
+  <title>Bus List</title>
 </head>
 
 <body>

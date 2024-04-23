@@ -16,13 +16,13 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         if($result){
             echo  '<script>
                 alert("Submission Successful");
-                window.location.href = "/tickets-system-only-html-and-css-main/contact.php";
+                window.location.href = "/Bus-Management-system-main/contact.php";
             </script>';
 
         }else{
             echo '<script>
                 alert("Submission Unsuccessful");
-                window.location.href = "/tickets-system-only-html-and-css-main/contact.php";
+                window.location.href = "/Bus-Management-system-main/contact.php";
             </script>';
         }
     }
