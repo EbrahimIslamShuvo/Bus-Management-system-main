@@ -110,35 +110,38 @@
                 <p class="text-center text-5xl font-bold font-serif pb-5">Leadership Team</p>
                 <div class="flex items-center justify-center">
                     <div class=" flex flex-col items-center justify-center">
-                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/tc746JJ/ebrahim.png"
-                            alt="M.Ebrahim Islam Shuvo">
+                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/1G2jF4B/ebrahim.png"
+                            alt="M. Ebrahim Islam Shuvo">
                         <p class="font-semibold text-lg">M.Ebrahim Islam Shuvo</p>
-                        <span class="text-gray-600 font-normal">Director, Engineering</span>
-                        <span class="text-gray-600 font-normal">Founding Managing Director & Chairman </span>
-                        <span class="text-gray-600 font-normal">Director, Tickets</span>
+                        <span class="text-gray-600 font-normal text-center">Founding Managing Director <br /> & Chairman
+                        </span>
+                        <span class="text-gray-600 font-normal text-center">Director, Engineering</span>
+                        <span class="text-gray-600 font-normal text-center">Director, Tickets</span>
                     </div>
                     <div class=" flex flex-col items-center justify-center">
-                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/2gWRsDY/mostak.png"
+                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/YkQ4kVd/mostak.png"
                             alt="Mostak Shahariyar">
                         <p class="font-semibold text-lg">Mostak Shahariyar</p>
-                        <span class="text-gray-600 font-normal">Founding Managing Director & Chairman </span>
+                        <span class="text-gray-600 font-normal text-center">Founding Managing Director <br /> & Chairman
+                        </span>
                         <span class="text-gray-600 font-normal">Director, Engineering</span>
                         <span class="text-gray-600 font-normal">Director, Tickets</span>
                     </div>
                     <div class=" flex flex-col items-center justify-center">
-                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/FgXHkkc/salik.png"
+                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/ZhjTFjc/salik.png"
                             alt="Ummay Salik Rumya Zinu">
                         <p class="font-semibold text-lg">Ummay Salik Rumya Zinu</p>
                         <span class="text-gray-600 font-normal">Employee of the Uniride</span>
                     </div>
                     <div class=" flex flex-col items-center justify-center">
-                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/bNRCH66/summa.png"
+                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/27H5CPC/summa.png"
                             alt="Summa Akter Midu">
                         <p class="font-semibold text-lg">Summa Akter Midu</p>
                         <span class="text-gray-600 font-normal">Employee of the Uniride</span>
                     </div>
                     <div class=" flex flex-col items-center justify-center">
-                        <img class="w-2/4 border-2 border-white rounded-full" src="" alt="Sanjida Islam">
+                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/27H5CPC/summa.png"
+                            alt="Sanjida Islam">
                         <p class="font-semibold text-lg">Sanjida Islam</p>
                         <span class="text-gray-600 font-normal">Employee of the Uniride</span>
                     </div>
@@ -148,21 +151,21 @@
         <div class="bg-white flex flex-col items-center justify-center py-10">
             <p class="text-center text-5xl font-bold font-serif pb-5">Our Values</p>
             <div class="w-3/4 flex items-center justify-center gap-5">
-                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5 rounded-3xl">
+                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5 rounded-2xl">
                     <i class="fa-solid fa-hand-holding-heart text-5xl bg-[#3fc496] rounded-full p-5"></i>
                     <p class="text-xl font-semibold">Love to innovate</p>
                     <p class="text-gray-500 text-justify">We are the pioneer of digitizing transportation in Bangladesh.
                         We innovate
                         services that solve daily hassles, all the while leveraging technology!</p>
                 </div>
-                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5 rounded-3xl">
+                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5 rounded-2xl">
                     <i class="fa-solid fa-shield-heart text-5xl bg-[#3fc496] rounded-full p-5"></i>
                     <p class="text-xl font-semibold">Committed to safety</p>
                     <p class="text-gray-500 text-justify">
                         We go the extra mile when it comes to our commitment to safety. Since the inception of Shohoz,
                         the company has gone above and beyond to ensure the safety of its valued passengers.</p>
                 </div>
-                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5 rounded-3xl">
+                <div class="shadow-2xl flex flex-col items-center justify-center p-5 gap-5 rounded-2xl">
                     <i class="fa-solid fa-handshake text-5xl bg-[#3fc496] rounded-full p-5"></i>
                     <p class="text-xl font-semibold">Believe in empowerment</p>
                     <p class="text-gray-500 text-justify">
