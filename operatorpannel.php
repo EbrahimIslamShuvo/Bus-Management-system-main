@@ -8,7 +8,7 @@ $count_cus_row = mysqli_fetch_assoc($result_cus);
 $count_cus = $count_cus_row['cus_count'];
 
 // Count selling ticket number
-$query_tic = "SELECT COUNT(*) AS tic_count FROM sellticket WHERE busname='{$user_row['user_name']}'";
+$query_tic = "SELECT COUNT(*) AS tic_count FROM sellticket WHERE busname='{$user_row['user_role']}'";
 $result_tic = mysqli_query($con, $query_tic);
 $count_tic_row = mysqli_fetch_assoc($result_tic);
 $count_tic = $count_tic_row['tic_count'];

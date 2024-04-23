@@ -109,16 +109,40 @@
             <div class="w-[90%]">
                 <p class="text-center text-5xl font-bold font-serif pb-5">Leadership Team</p>
                 <div class="flex items-center justify-center">
-                    <div class=" flex flex-col items-center justify-center">
+                    <div class=" flex flex-col items-center justify-center bg-green-500">
                         <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/tc746JJ/ebrahim.png"
                             alt="M.Ebrahim Islam Shuvo">
                         <p class="font-semibold text-lg">M.Ebrahim Islam Shuvo</p>
-                        <span class="text-gray-600 font-normal">Director, Engineering</span>
                         <span class="text-gray-600 font-normal">Founding Managing Director & Chairman </span>
+                        <span class="text-gray-600 font-normal">Director, Engineering</span>
                         <span class="text-gray-600 font-normal">Director, Tickets</span>
                     </div>
-                    <div class=" flex flex-col items-center justify-center">
-                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/2gWRsDY/mostak.png"
+                    <div class=" flex flex-col items-center justify-center bg-green-500">
+                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/zHWm5gL/mostak-2.png"
+                            alt="M.Ebrahim Islam Shuvo">
+                        <p class="font-semibold text-lg">M.Ebrahim Islam Shuvo</p>
+                        <span class="text-gray-600 font-normal">Founding Managing Director & Chairman </span>
+                        <span class="text-gray-600 font-normal">Director, Engineering</span>
+                        <span class="text-gray-600 font-normal">Director, Tickets</span>
+                    </div>
+                    <div class=" flex flex-col items-center justify-center bg-green-500">
+                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/tc746JJ/ebrahim.png"
+                            alt="M.Ebrahim Islam Shuvo">
+                        <p class="font-semibold text-lg">M.Ebrahim Islam Shuvo</p>
+                        <span class="text-gray-600 font-normal">Founding Managing Director & Chairman </span>
+                        <span class="text-gray-600 font-normal">Director, Engineering</span>
+                        <span class="text-gray-600 font-normal">Director, Tickets</span>
+                    </div>
+                    <div class=" flex flex-col items-center justify-center bg-green-500">
+                        <img class="w-2/4 border-2 border-white rounded-full" src="https://i.ibb.co/tc746JJ/ebrahim.png"
+                            alt="M.Ebrahim Islam Shuvo">
+                        <p class="font-semibold text-lg">M.Ebrahim Islam Shuvo</p>
+                        <span class="text-gray-600 font-normal">Founding Managing Director & Chairman </span>
+                        <span class="text-gray-600 font-normal">Director, Engineering</span>
+                        <span class="text-gray-600 font-normal">Director, Tickets</span>
+                    </div>
+                    <!-- <div class=" flex flex-col items-center justify-center bg-green-500">
+                        <img class="w-2/4 border-2 border-white rounded-full bg-red-500" src="https://i.ibb.co/zHWm5gL/mostak-2.png"
                             alt="Mostak Shahariyar">
                         <p class="font-semibold text-lg">Mostak Shahariyar</p>
                         <span class="text-gray-600 font-normal">Founding Managing Director & Chairman </span>
@@ -141,7 +165,7 @@
                         <img class="w-2/4 border-2 border-white rounded-full" src="" alt="Sanjida Islam">
                         <p class="font-semibold text-lg">Sanjida Islam</p>
                         <span class="text-gray-600 font-normal">Employee of the Uniride</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

@@ -1,7 +1,9 @@
 <?php
     require_once("config\getdata.php");
     $sql = "SELECT * FROM sellticket WHERE busname = '{$user_row['user_role']}' ORDER BY id DESC";
-    $result = $con->query($sql);
+    $result = mysqli_query($con,$sql);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    $count = mysqli_num_rows($result);
 
 ?>
 
@@ -67,7 +69,6 @@
                                         <td><?php echo $row['journey_date']?></td>
                                         <td><?php echo $row['seat']?></td>
                                         <td>
-                                            <a href="#" class="btn btn-primary" style="background-color: blue">Update</a>
                                             <a href="#" class="btn btn-primary" style="background-color: red;">Delete</a>
 
                                         </td>
